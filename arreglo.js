@@ -1,21 +1,23 @@
-function insertarAleatorios(ac, cant){
+function insertarAleatorios(arreglo, cant){
+    var v = arreglo;
     if(cant){
         for(var i = 0; i < cant; i++){
-            ac.push(Math.floor(Math.random()*10000));
+            v.push(Math.floor(Math.random()*10000));
         }
     }else{
         console.log("Ningún dato incertado");
     }
     
-    return ac;
+    return v;
 }
-function insertar(ab, cant){
+function insertar(arreglo, cant){
+    var w = arreglo
     if(cant){
-        ab.push(cant);
+        w.push(cant);
     }else{
         console.log("Ningún dato incertado");
     }
-    return ab;
+    return w;
 }
 
 module.exports = {insertar,insertarAleatorios};

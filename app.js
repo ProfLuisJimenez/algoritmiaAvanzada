@@ -20,29 +20,53 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //procedimientos
 const { insertar, insertarAleatorios} = require('./arreglo.js');
 const {burbuja} = require('./burbuja.js');
+const {secuencial, binaria} = require('./busqueda.js');
 //import {secdes, secord, binaria} from './busqueda.js';
 
 //variables generales
-let arreglo = [];
+let arreglodes = [];
 let arregloord = [];
+let sd;
+let so;
+let bin;
 
 //rutas
 app.get('/algo', (req, res) => {
-    arregloord = burbuja(arreglo);
-    res.render('index',{arreglo, arregloord});
+    console.log(arreglodes);
+    arregloord = burbuja(arreglodes);
+    console.log(arreglodes);
+    res.render('index',{arreglodes, arregloord, sd, so, bin});
 });
 app.post('/aleatorio', (req, res) => {
     var cant = parseInt(req.body.aleatorios);
-    insertarAleatorios(arreglo,cant);
+    arreglodes = insertarAleatorios(arreglodes,cant);
     res.redirect('/algo');
 });
 app.post('/manual', (req, res) => {
     var cant = parseInt(req.body.manual);
-    insertar(arreglo,cant);
+    arreglodes= insertar(arreglodes,cant);
     res.redirect('/algo');
 });
 app.post('/limpiar', async(req, res) => {
-    arreglo = [];
-    arregloord =[];
+    arreglodes = [];
+    arregloord = [];
+    sd = 0;
+    so = 0;
+    bin = 0;
     res.redirect('/algo');
+});
+app.post('/buscar', (req, res) => {
+    var cant = parseInt(req.body.busqueda);
+    if(arreglodes.includes(cant)){
+        sd = secuencial(arreglodes,cant);
+        so = secuencial(arregloord,cant);
+        bin = binaria(arregloord,cant);
+        res.redirect('/algo');
+    }else{
+        console.log("Ese valor no esta en el arreglo");
+        sd = secuencial(arreglodes,cant);
+        so = secuencial(arregloord,cant);
+        bin = binaria(arregloord,cant);
+        res.redirect('/algo');
+    }
 });

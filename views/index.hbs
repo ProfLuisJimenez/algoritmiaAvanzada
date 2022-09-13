@@ -74,26 +74,26 @@
                 </table>
             </div>
             <div class="col-md-2">
-                <form role="form">
+                <form role="form" method="post" action="/buscar">
                     <div class="form-group">
                         <label for="busca">
-                            Buscar número:
+                            Tiempo invertido en buscar número:
                         </label>
-                        <input class="form-control" id="busca" type="number" min="1" pattern="^[0-9]+"/>
+                        <input class="form-control" id="busqueda" type="number" min="1" pattern="^[0-9]+"/>
                     </div>
                     <button type="submit" class="btn btn-primary">
                         Buscar
                     </button>
                 </form>
-                <p>
-                    Secuencial con arreglo desordenado:
-                </p>
-                <p>
-                    Secuencial con arreglo ordenado:
-                </p>
-                <p>
-                    Binaria:
-                </p>
+                <div id="bd">
+                    Secuencial con arreglo desordenado:{{sd}}
+                </div>
+                <div id="bo">
+                    Secuencial con arreglo ordenado:{{so}}
+                </div>
+                <div id="bb">
+                    Binaria:{{bin}}
+                </div>
             </div>
         </div>
     </div>

@@ -1,15 +1,16 @@
 function burbuja(arreglo){
+    var x = arreglo;
     var n, i, k, aux;
-    n = arreglo.length;
+    n = x.length;
     for (k = 1; k < n; k++) {
         for (i = 0; i < (n - k); i++) {
-            if (arreglo[i] > arreglo[i + 1]) {
-                aux = arreglo[i];
-                arreglo[i] = arreglo[i + 1];
-                arreglo[i + 1] = aux;
+            if (x[i] > x[i + 1]) {
+                aux = x[i];
+                x[i] = x[i + 1];
+                x[i + 1] = aux;
             }
         }
     }
-    return arreglo;
+    return x;
 }
 module.exports = {burbuja};
