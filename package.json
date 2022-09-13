@@ -1,0 +1,23 @@
+{
+  "name": "algoavanzada",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "handlebars": "^4.7.7",
+    "hbs": "^4.2.0",
+    "nodemon": "^2.0.19"
+  },
+  "nodemonConfig": {
+    "ext": "js,json,hbs"
+  }
+}
