@@ -3,6 +3,7 @@ function insertarAleatorios(arreglo, cant){
     if(cant){
         for(var i = 0; i < cant; i++){
             v.push(Math.floor(Math.random()*10000));
+            console.log (v[i]);
         }
     }else{
         console.log("Ningún dato incertado");

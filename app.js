@@ -24,28 +24,28 @@ const {secuencial, binaria} = require('./busqueda.js');
 //import {secdes, secord, binaria} from './busqueda.js';
 
 //variables generales
-let arreglodes = [];
-let arregloord = [];
-let sd;
-let so;
-let bin;
+//var arreglodes = [];
+let arreglodes = [5, 3, 8, 1];
+var arregloord = [];
+var sd;
+var so;
+var bin;
 
 //rutas
-app.get('/algo', (req, res) => {
-    console.log(arreglodes);
-    arregloord = burbuja(arreglodes);
-    console.log(arreglodes);
+app.get('/', (req, res) => {
+    console.log (arreglodes);
+    arregloord = burbuja([...arreglodes]);
     res.render('index',{arreglodes, arregloord, sd, so, bin});
 });
 app.post('/aleatorio', (req, res) => {
     var cant = parseInt(req.body.aleatorios);
     arreglodes = insertarAleatorios(arreglodes,cant);
-    res.redirect('/algo');
+    res.redirect('/');
 });
 app.post('/manual', (req, res) => {
     var cant = parseInt(req.body.manual);
     arreglodes= insertar(arreglodes,cant);
-    res.redirect('/algo');
+    res.redirect('/');
 });
 app.post('/limpiar', async(req, res) => {
     arreglodes = [];
@@ -53,7 +53,7 @@ app.post('/limpiar', async(req, res) => {
     sd = 0;
     so = 0;
     bin = 0;
-    res.redirect('/algo');
+    res.redirect('/');
 });
 app.post('/buscar', (req, res) => {
     var cant = parseInt(req.body.busqueda);
@@ -61,12 +61,12 @@ app.post('/buscar', (req, res) => {
         sd = secuencial(arreglodes,cant);
         so = secuencial(arregloord,cant);
         bin = binaria(arregloord,cant);
-        res.redirect('/algo');
+        res.redirect('/');
     }else{
         console.log("Ese valor no esta en el arreglo");
         sd = secuencial(arreglodes,cant);
         so = secuencial(arregloord,cant);
         bin = binaria(arregloord,cant);
-        res.redirect('/algo');
+        res.redirect('/');
     }
 });

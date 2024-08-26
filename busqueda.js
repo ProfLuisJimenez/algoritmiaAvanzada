@@ -2,7 +2,7 @@ function secuencial (arreglo, cant){
     var y = arreglo;
     var inicio = performance.now();
     for (var i in y){
-        if (y[i] === cant) {
+        if (y[i] == cant) {
             console.log("encontrado");
             break;
         }
